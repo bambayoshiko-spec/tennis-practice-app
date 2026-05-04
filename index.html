@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>テニス練習記録アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>テニス練習記録アプリ</h1>
+
+        <div class="form-container">
+            <h2>練習記録を追加</h2>
+            <form id="practiceForm">
+                <div class="form-group">
+                    <label for="date">日付:</label>
+                    <input type="date" id="date" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="theme">今日のテーマ:</label>
+                    <input type="text" id="theme" placeholder="例：フォアハンドの強化" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="content">練習内容:</label>
+                    <textarea id="content" rows="3" placeholder="練習内容を入力してください" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="rating">自己評価 (1-10):</label>
+                    <input type="number" id="rating" min="1" max="10" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="insights">気づき:</label>
+                    <textarea id="insights" rows="2" placeholder="練習中の気づきを入力してください"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="comment">コーチコメント:</label>
+                    <textarea id="comment" rows="2" placeholder="コーチからのコメント"></textarea>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn">記録を追加</button>
+                    <button type="button" id="cancelBtn" class="btn btn-secondary" style="display: none;">キャンセル</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="records-container">
+            <h2>練習記録一覧</h2>
+            <div id="recordsList"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
