@@ -11,41 +11,41 @@
         <h1>テニス練習記録アプリ</h1>
 
         <div class="form-container">
-            <h2>練習記録を追加</h2>
+            <h2 id="formTitle">練習記録を追加</h2>
             <form id="practiceForm">
                 <div class="form-group">
                     <label for="date">日付:</label>
-                    <input type="date" id="date" required>
+                    <input type="date" id="date" name="date" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="theme">今日のテーマ:</label>
-                    <input type="text" id="theme" placeholder="例：フォアハンドの強化" required>
+                    <label for="lessonType">レッスンタイプ:</label>
+                    <select id="lessonType" name="lessonType">
+                        <option value="">選択してください</option>
+                        <option value="group">グループレッスン</option>
+                        <option value="private">プライベートレッスン</option>
+                        <option value="match">試合</option>
+                    </select>
                 </div>
 
                 <div class="form-group">
                     <label for="content">練習内容:</label>
-                    <textarea id="content" rows="3" placeholder="練習内容を入力してください" required></textarea>
+                    <textarea id="content" name="content" rows="3" placeholder="練習内容を入力してください" required></textarea>
                 </div>
 
                 <div class="form-group">
                     <label for="rating">自己評価 (1-10):</label>
-                    <input type="number" id="rating" min="1" max="10" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="insights">気づき:</label>
-                    <textarea id="insights" rows="2" placeholder="練習中の気づきを入力してください"></textarea>
+                    <input type="number" id="rating" name="rating" min="1" max="10">
                 </div>
 
                 <div class="form-group">
                     <label for="comment">コーチコメント:</label>
-                    <textarea id="comment" rows="2" placeholder="コーチからのコメント"></textarea>
+                    <textarea id="comment" name="comment" rows="2" placeholder="コーチからのコメント"></textarea>
                 </div>
 
                 <div class="form-actions">
-                    <button type="submit" class="btn">記録を追加</button>
-                    <button type="button" id="cancelBtn" class="btn btn-secondary" style="display: none;">キャンセル</button>
+                    <button type="submit" class="btn" id="submitBtn">記録を追加</button>
+                    <button type="button" class="btn btn-secondary" id="cancelBtn" style="display: none;">キャンセル</button>
                 </div>
             </form>
         </div>
