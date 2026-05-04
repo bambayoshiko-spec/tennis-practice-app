@@ -1,5 +1,8 @@
 // グローバル変数
 let editingRecordId = null;
+const practiceForm = document.getElementById('practiceForm');
+const recordsList = document.getElementById('recordsList');
+const STORAGE_KEY = 'tennisPracticeRecords';
 
 // IndexedDBの設定
 const DB_NAME = 'TennisPracticeDB';
@@ -77,10 +80,10 @@ async function saveRecords(records) {
 }
 
 // 記録の表示
-function displayRecords() {
-    const records = loadRecords();
+async function displayRecords() {
+    const records = await loadRecords();
 
-    if (records.length === 0) {
+    if (!records || records.length === 0) {
         recordsList.innerHTML = '<p class="no-records">まだ練習記録がありません。新しい記録を追加してください。</p>';
         return;
     }
@@ -162,8 +165,29 @@ async function handleFormSubmit(e) {
         // 記録の再表示
         await displayRecords();
 
+        const message = editingRecordId ? '記録を更新しました！' : '練習記録を追加しました！';
+        editingRecordId = null;
+
+        await saveRecords(records);
+
+        // フォームのリセット
+        practiceForm.reset();
+
+        // 今日の日付を再設定
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('date').value = today;
+
+        // ボタンのテキストをリセット
+        document.querySelector('.btn[type="submit"]').textContent = '記録を追加';
+
+        // キャンセルボタンを非表示
+        document.getElementById('cancelBtn').style.display = 'none';
+
+        // 記録の再表示
+        await displayRecords();
+
         // 成功メッセージ
-        alert(editingRecordId ? '記録を更新しました！' : '練習記録を追加しました！');
+        alert(message);
     } catch (error) {
         console.error('保存エラー:', error);
         alert('保存中にエラーが発生しました。もう一度お試しください。');
