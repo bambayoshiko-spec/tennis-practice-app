@@ -1,63 +1,49 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>テニス練習記録アプリ</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <div class="container">
-        <h1>テニス練習記録アプリ</h1>
+<!-- アイコン設定 -->
+<link rel="apple-touch-icon" href="icon.png">
+    <div class="form-container">
+        <h2 id="formTitle">練習記録を追加</h2>
+        <form id="practiceForm">
+            <div class="form-group">
+                <label for="date">日付:</label>
+                <input type="date" id="date" name="date" required>
+            </div>
 
-        <div class="form-container">
-            <h2 id="formTitle">練習記録を追加</h2>
-            <form id="practiceForm">
-                <div class="form-group">
-                    <label for="date">日付:</label>
-                    <input type="date" id="date" name="date" required>
-                </div>
+            <div class="form-group">
+                <label for="lessonType">レッスンタイプ:</label>
+                <select id="lessonType" name="lessonType">
+                    <option value="">選択してください</option>
+                    <option value="group">グループレッスン</option>
+                    <option value="private">プライベートレッスン</option>
+                    <option value="match">試合</option>
+                </select>
+            </div>
 
-                <div class="form-group">
-                    <label for="lessonType">レッスンタイプ:</label>
-                    <select id="lessonType" name="lessonType">
-                        <option value="">選択してください</option>
-                        <option value="group">グループレッスン</option>
-                        <option value="private">プライベートレッスン</option>
-                        <option value="match">試合</option>
-                    </select>
-                </div>
+            <div class="form-group">
+                <label for="content">練習内容:</label>
+                <textarea id="content" name="content" rows="3" placeholder="練習内容を入力してください" required></textarea>
+            </div>
 
-                <div class="form-group">
-                    <label for="content">練習内容:</label>
-                    <textarea id="content" name="content" rows="3" placeholder="練習内容を入力してください" required></textarea>
-                </div>
+            <div class="form-group">
+                <label for="rating">自己評価 (1-10):</label>
+                <input type="number" id="rating" name="rating" min="1" max="10">
+            </div>
 
-                <div class="form-group">
-                    <label for="rating">自己評価 (1-10):</label>
-                    <input type="number" id="rating" name="rating" min="1" max="10">
-                </div>
+            <div class="form-group">
+                <label for="comment">コーチコメント:</label>
+                <textarea id="comment" name="comment" rows="2" placeholder="コーチからのコメント"></textarea>
+            </div>
 
-                <div class="form-group">
-                    <label for="comment">コーチコメント:</label>
-                    <textarea id="comment" name="comment" rows="2" placeholder="コーチからのコメント"></textarea>
-                </div>
-
-                <div class="form-actions">
-                    <button type="submit" class="btn" id="submitBtn">記録を追加</button>
-                    <button type="button" class="btn btn-secondary" id="cancelBtn" style="display: none;">キャンセル</button>
-                </div>
-            </form>
-        </div>
-
-        <div class="records-container">
-            <h2>練習記録一覧</h2>
-            <div id="recordsList"></div>
-        </div>
+            <div class="form-actions">
+                <button type="submit" class="btn" id="submitBtn">記録を追加</button>
+                <button type="button" class="btn btn-secondary" id="cancelBtn" style="display: none;">キャンセル</button>
+            </div>
+        </form>
     </div>
 
-  <script type="module" src="script.js"></script>
+    <div class="records-container">
+        <h2>練習記録一覧</h2>
+        <div id="recordsList"></div>
+    </div>
+</div>
 
-    </body>
-</html>
-
+<script type="module" src="script.js"></script>
