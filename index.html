@@ -1,16 +1,29 @@
-<!-- アイコン設定（ここが正しい位置） -->
-<link rel="apple-touch-icon" href="icon.png">
+<!DOCTYPE html>
+
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>テニス練習記録アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="apple-touch-icon" href="icon.png">
+</head>
+<body>
+    <div class="container">
+        <h1>テニス練習記録アプリ</h1>
+
+```
     <div class="form-container">
         <h2 id="formTitle">練習記録を追加</h2>
         <form id="practiceForm">
             <div class="form-group">
                 <label for="date">日付:</label>
-                <input type="date" id="date" name="date" required>
+                <input type="date" id="date" required>
             </div>
 
             <div class="form-group">
                 <label for="lessonType">レッスンタイプ:</label>
-                <select id="lessonType" name="lessonType">
+                <select id="lessonType">
                     <option value="">選択してください</option>
                     <option value="group">グループレッスン</option>
                     <option value="private">プライベートレッスン</option>
@@ -20,30 +33,28 @@
 
             <div class="form-group">
                 <label for="content">練習内容:</label>
-                <textarea id="content" name="content" rows="3" placeholder="練習内容を入力してください" required></textarea>
+                <textarea id="content" required></textarea>
             </div>
 
             <div class="form-group">
-                <label for="rating">自己評価 (1-10):</label>
-                <input type="number" id="rating" name="rating" min="1" max="10">
+                <label for="rating">自己評価:</label>
+                <input type="number" id="rating">
             </div>
 
             <div class="form-group">
                 <label for="comment">コーチコメント:</label>
-                <textarea id="comment" name="comment" rows="2" placeholder="コーチからのコメント"></textarea>
+                <textarea id="comment"></textarea>
             </div>
 
-            <div class="form-actions">
-                <button type="submit" class="btn" id="submitBtn">記録を追加</button>
-                <button type="button" class="btn btn-secondary" id="cancelBtn" style="display: none;">キャンセル</button>
-            </div>
+            <button type="submit">保存</button>
         </form>
     </div>
 
-    <div class="records-container">
-        <h2>練習記録一覧</h2>
-        <div id="recordsList"></div>
-    </div>
+    <div id="recordsList"></div>
 </div>
 
 <script type="module" src="script.js"></script>
+```
+
+</body>
+</html>
